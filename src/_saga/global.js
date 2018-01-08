@@ -1,0 +1,37 @@
+import { takeEvery, put, call, fork, all } from 'redux-saga/effects';
+import { PROFILE, ERROR } from '../_constant/actionType';
+import authService from '../_service/auth';
+
+export function* profile(action) {
+  try {
+    const [ profile ] = yield all([
+      call(authService.profile)
+    ]);
+    yield put({
+      type: PROFILE.SUCCESS,
+      payload: {
+        profile,
+      },
+    });
+
+    if (action.payload.callback) {
+      action.payload.callback();
+    }
+  } catch (error) {
+    yield put({
+      type: ERROR,
+      payload: {
+        error,
+        message: '获取用户信息失败',
+      },
+    });
+  }
+}
+
+export function* watchProfile() {
+  yield takeEvery(PROFILE.ACTION, profile);
+}
+
+export default function* global() {
+  yield fork(watchProfile);
+}
