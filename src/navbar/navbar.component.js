@@ -6,7 +6,7 @@ export default class Navbar extends React.Component {
   }
 
   componentDidCatch(error) {
-    console.log(error);
+    console.error(error);
   }
 
   render() {
@@ -16,7 +16,12 @@ export default class Navbar extends React.Component {
           <nav>
             <div className="nav-wrapper">
               <ul className="right hide-on-med-and-down">
-                {menuItems.call(this)}
+                <li>
+                  <a href="#/activity/home">Activity</a>
+                </li>
+                <li>
+                  <a href="#/vip/home">VIP</a>
+                </li>
               </ul>
             </div>
           </nav>
@@ -24,17 +29,4 @@ export default class Navbar extends React.Component {
       </div>
     );
   }
-}
-
-function menuItems() {
-  return (
-    <div>
-      <li>
-        <a href="#/activity/home">Activity</a>
-      </li>
-      <li>
-        <a href="#/vip/home">VIP</a>
-      </li>
-    </div>
-  );
 }

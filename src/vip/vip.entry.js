@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from 'react-dom';
 import { Switch, HashRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Bundle from './components/Lazyload';
@@ -22,7 +21,7 @@ const createComponent = (component) => {
 
 class Root extends React.PureComponent {
   componentDidCatch(error) {
-    console.log(error);
+    console.error(error);
   }
 
   render() {

@@ -6,9 +6,11 @@
     "start:mock": "node ./mock/mock-server.js",
     "build": "rimraf build && npm run build-webpack",
     "build-webpack": "webpack --config webpack.prod.config.js",
-    "eslint": "eslint src test --fix",
-    "precommit": "yarn eslint"
+    "eslint": "eslint src test --fix"
   },
+  "pre-commit": [
+    "eslint"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gaoyuan-mountain/ocean-one"
@@ -41,6 +43,7 @@
     "html-loader": "^0.5.1",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
+    "pre-commit": "^1.2.2",
     "rimraf": "^2.6.2",
     "style-loader": "^0.19.0",
     "webpack": "^3.10.0"

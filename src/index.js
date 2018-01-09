@@ -2,7 +2,7 @@ import {declareChildApplication, start} from 'single-spa';
 import 'babel-polyfill';
 
 function hashPrefix(prefix) {
-  return function(location) {
+  return (location) => {
     return location.hash.indexOf(`#${prefix}`) === 0;
   };
 }

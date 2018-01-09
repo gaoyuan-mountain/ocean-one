@@ -21,7 +21,7 @@ const createComponent = (component) => {
 
 class Root extends React.PureComponent {
   componentDidCatch(error) {
-    console.log(error);
+    console.error(error);
   }
 
   render() {

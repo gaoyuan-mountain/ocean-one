@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import singleSpaReact from 'single-spa-react';
 import navbar from './navbar.component.js';
 
+function domElementGetter() {
+  return document.getElementById('navbar');
+}
 
 const reactLifecyles = singleSpaReact({
   React,
@@ -22,10 +25,6 @@ export const mount = [
 export const unmount = [
   reactLifecyles.unmount,
 ];
-
-function domElementGetter() {
-  return document.getElementById('navbar');
-}
 
 if (module.hot) {
   module.hot.accept('./navbar.component.js', () => {
