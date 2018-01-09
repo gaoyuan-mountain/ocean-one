@@ -5,18 +5,20 @@
     "start": "webpack-dev-server",
     "start:mock": "node ./mock/mock-server.js",
     "build": "rimraf build && npm run build-webpack",
-    "build-webpack": "webpack --config webpack.prod.config.js"
+    "build-webpack": "webpack --config webpack.prod.config.js",
+    "eslint": "eslint src test --fix",
+    "precommit": "yarn run eslint"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/gaoyuan-mountain/ocean-one"
   },
   "author": "GaoYuan",
   "license": "MIT",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/gaoyuan-mountain/ocean-one/issues"
   },
-  "homepage": "",
+  "homepage": "https://github.com/gaoyuan-mountain/ocean-one",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
