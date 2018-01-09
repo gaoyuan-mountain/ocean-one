@@ -4,4 +4,4 @@ import * as activityAction from './activity';
 export {
   globalAction,
   activityAction,
-}
+};

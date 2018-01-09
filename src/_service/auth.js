@@ -5,6 +5,6 @@ const authService = {
   profile() {
     return Fetch.get(PROFILE);
   }
-}
+};
 
 export default authService;

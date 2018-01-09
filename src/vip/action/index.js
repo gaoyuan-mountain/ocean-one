@@ -4,4 +4,4 @@ import * as vipAction from './vip';
 export {
   globalAction,
   vipAction,
-}
+};

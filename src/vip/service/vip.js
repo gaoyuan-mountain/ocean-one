@@ -5,6 +5,6 @@ const vipService = {
   list() {
     return Fetch.get(VIP_LIST);
   }
-}
+};
 
 export default vipService;

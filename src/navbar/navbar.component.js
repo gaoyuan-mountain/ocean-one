@@ -36,5 +36,5 @@ function menuItems() {
         <a href="#/vip/home">VIP</a>
       </li>
     </div>
-  )
-};
+  );
+}

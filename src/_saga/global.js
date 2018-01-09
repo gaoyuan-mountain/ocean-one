@@ -4,13 +4,13 @@ import authService from '../_service/auth';
 
 export function* profile(action) {
   try {
-    const [ profile ] = yield all([
+    const [ _profile ] = yield all([
       call(authService.profile)
     ]);
     yield put({
       type: PROFILE.SUCCESS,
       payload: {
-        profile,
+        profile: _profile,
       },
     });
 

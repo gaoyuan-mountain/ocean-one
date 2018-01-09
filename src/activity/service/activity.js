@@ -5,6 +5,6 @@ const activityService = {
   list() {
     return Fetch.get(ACTIVITY_LIST);
   }
-}
+};
 
 export default activityService;

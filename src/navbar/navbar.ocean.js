@@ -24,7 +24,7 @@ export const unmount = [
 ];
 
 function domElementGetter() {
-  return document.getElementById("navbar");
+  return document.getElementById('navbar');
 }
 
 if (module.hot) {

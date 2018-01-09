@@ -11,20 +11,20 @@ const createComponent = (component) => {
   return () => {
     let AsyncComponent = (
       <Bundle load={component}>
-      {
-        (Async) => Async ? <Async /> : <div>LOADING...</div>
-      }
+        {
+          (Async) => Async ? <Async /> : <div>LOADING...</div>
+        }
       </Bundle>
-    )
+    );
     return AsyncComponent;
-  }
-}
+  };
+};
 
 class Root extends React.PureComponent {
   componentDidCatch(error) {
     console.log(error);
   }
-  
+
   render() {
     return (
       <Provider store={store}>

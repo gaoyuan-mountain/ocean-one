@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import { Component } from 'react';
 
 class Lazyload extends Component {
   constructor(props) {
@@ -18,13 +18,13 @@ class Lazyload extends Component {
   load = (props) => {
     this.setState({
       mod: null,
-    })
+    });
 
     props.load((mod) => {
       this.setState({
         mod: mod.default ? mod.default : mod
       });
-    })
+    });
   }
 
   render() {
