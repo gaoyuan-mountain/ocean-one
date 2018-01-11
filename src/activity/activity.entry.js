@@ -1,9 +1,10 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Switch, HashRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Bundle from './components/Lazyload';
 import PermissionGuard from './containers/PermissionGuard';
-import Home from 'bundle-loader?lazy&name=customTable!./containers/Home';
+import Home from 'bundle-loader?lazy&name=activity-home!./containers/Home';
 import store from './store';
 
 const createComponent = (component) => {
@@ -37,6 +38,13 @@ class Root extends React.PureComponent {
       </Provider>
     );
   }
+}
+
+if (module.hot) {
+  module.hot.accept('./activity.entry.js', () => {
+    const NextRoot = require('./activity.entry.js').default;
+    ReactDOM.render(React.createElement(NextRoot), document.getElementById('activity'));
+  });
 }
 
 export default Root;

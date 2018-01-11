@@ -21,10 +21,3 @@ export const mount = [
 export const unmount = [
   reactLifecycles.unmount,
 ];
-
-if (module.hot) {
-  module.hot.accept('./activity.entry.js', () => {
-    const NextRoot = require('./activity.entry.js').default;
-    ReactDOM.render(React.createElement(NextRoot), document.getElementById('activity'));
-  });
-}

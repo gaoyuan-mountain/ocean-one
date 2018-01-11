@@ -3,7 +3,7 @@ import { Switch, HashRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Bundle from './components/Lazyload';
 import PermissionGuard from './containers/PermissionGuard';
-import Home from 'bundle-loader?lazy&name=customTable!./containers/Home';
+import Home from 'bundle-loader?lazy&name=vip-home!./containers/Home';
 import store from './store';
 
 const createComponent = (component) => {

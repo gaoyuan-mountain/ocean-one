@@ -1,7 +1,27 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+
+function getBabelConfig() {
+  return {
+    presets: [
+      'react',
+      ['babel-preset-env', {
+        targets: {
+          browsers: ['last 2 versions'],
+        },
+      }],
+    ],
+    plugins: [
+      'transform-object-rest-spread',
+      'transform-class-properties',
+      'syntax-dynamic-import',
+      'transform-function-bind',
+    ],
+  };
+}
 
 module.exports = {
   entry: __dirname + '/src/index.js',
@@ -13,12 +33,11 @@ module.exports = {
   resolve: {
     extensions: ['.jsx', '.js'],
     modules: [
-      "node_modules",
-      path.resolve(__dirname, "./"),
+      'node_modules',
+      path.resolve(__dirname, './'),
     ],
     alias: {
       'single-spa': path.resolve(__dirname, 'node_modules/single-spa/lib/single-spa.js'),
-      '_common': path.resolve(__dirname, './_common'),
     },
   },
   module: {
@@ -58,22 +77,3 @@ module.exports = {
     }),
   ],
 };
-
-function getBabelConfig() {
-  return {
-    presets: [
-      'react',
-      ['babel-preset-env', {
-        targets: {
-          "browsers": ["last 2 versions"],
-        },
-      }],
-    ],
-    plugins: [
-      'transform-object-rest-spread',
-      'transform-class-properties',
-      'syntax-dynamic-import',
-      'transform-function-bind',
-    ],
-  };
-}
