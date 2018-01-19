@@ -40,8 +40,12 @@ yarn build
 
 - 公用部分分为公共组件和共用方法。
 - 公共组件是独立的app，如navbar。独立实现并且在index.js中注册，通过生效路由逻辑来控制显示。
-- 公用方法包括_action, _constant, _reducer, _saga, _service, _store, _util。当这些方法需要在多个子项目中反复使用，就可以抽出到公共方法中。抽出之前需要在项目组内进行讨论确认。严格避免出现功能重复的公共抽象。
+- 公用方法包括action, constant, reducer, saga, service, store, util。当这些方法需要在多个子项目中反复使用，就可以抽出到公共方法中。抽出之前需要在项目组内进行讨论确认。严格避免出现功能重复的公共抽象。
 
 ## 关于按需加载
 
 - 子项目需要按需加载。子项目中是否按路由加载，由子项目决定，不强制。
+
+## 关于antd主题定制
+
+- 系统已经支持antd的less变量覆盖，修改 /src/_style/ant-default-vars.less 文件，

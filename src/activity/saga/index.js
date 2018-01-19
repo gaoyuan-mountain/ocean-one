@@ -1,5 +1,5 @@
 import { fork } from 'redux-saga/effects';
-import global from '../../_saga/global';
+import global from 'common-saga/global';
 import activity from './activity';
 
 export default function* () {

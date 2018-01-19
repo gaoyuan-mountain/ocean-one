@@ -1,4 +1,4 @@
-import configStore from '../../_store';
+import configStore from 'common-store';
 import reducer from '../reducer';
 import saga from '../saga';
 

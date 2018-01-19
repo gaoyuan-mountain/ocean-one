@@ -1,0 +1,39 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.layout {
+  display: flex;
+  &.vertical {
+    flex-direction: column;
+  }
+}
+
+#menu {
+  min-height: 100vh;
+  overflow: auto;
+  border-right: 1px solid #eee;
+  box-sizing: border-box;
+}
+
+.layout-main {
+  flex: 1;
+  background: #f7f9fa;
+}
+
+.ant-advanced-search-form {
+  .ant-form-item {
+    display: flex;
+  }
+  .ant-form-item-label {
+    overflow: visible;
+  }
+  .ant-form-item-control-wrapper {
+    flex: 1;
+  }
+}
+
+::-moz-placeholder { color: #a3afb7; }
+::-webkit-input-placeholder { color:#a3afb7; }
+:-ms-input-placeholder { color:#a3afb7; }

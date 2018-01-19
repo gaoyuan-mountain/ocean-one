@@ -38,10 +38,22 @@ module.exports = {
     ],
     alias: {
       'single-spa': path.resolve(__dirname, 'node_modules/single-spa/lib/single-spa.js'),
+      'common-components': path.resolve(__dirname, 'src/_common/components'),
+      'common-action': path.resolve(__dirname, 'src/_common/action'),
+      'common-constant': path.resolve(__dirname, 'src/_common/constant'),
+      'common-reducer': path.resolve(__dirname, 'src/_common/reducer'),
+      'common-saga': path.resolve(__dirname, 'src/_common/saga'),
+      'common-service': path.resolve(__dirname, 'src/_common/service'),
+      'common-store': path.resolve(__dirname, 'src/_common/store'),
+      'common-utils': path.resolve(__dirname, 'src/_common/utils'),
     },
   },
   module: {
     rules: [
+      {
+        test: /\.png$/,
+        loader: ExtractTextPlugin.extract('file-loader')
+      },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']

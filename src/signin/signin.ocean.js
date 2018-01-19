@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import singleSpaReact from 'single-spa-react';
-import navbar from './navbar.component.js';
+import SignIn from './signin.component.js';
 
 function domElementGetter() {
-  return document.getElementById('navbar');
+  return document.getElementById('signin');
 }
 
 const reactLifecyles = singleSpaReact({
   React,
   ReactDOM,
   domElementGetter,
-  rootComponent: navbar,
+  rootComponent: SignIn,
 });
 
 export const bootstrap = [
@@ -27,8 +27,8 @@ export const unmount = [
 ];
 
 if (module.hot) {
-  module.hot.accept('./navbar.component.js', () => {
-    const NextRoot = require('./navbar.component.js').default;
+  module.hot.accept('./signin.component.js', () => {
+    const NextRoot = require('./signin.component.js').default;
     ReactDOM.render(React.createElement(NextRoot), domElementGetter());
   });
 }

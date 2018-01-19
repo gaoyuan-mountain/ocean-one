@@ -1,4 +1,4 @@
-import { createReducer } from '../../_utils/helper';
+import { createReducer } from 'common-utils/helper';
 import { VIP_LIST } from '../constant/actionType';
 
 export const initialState = {
