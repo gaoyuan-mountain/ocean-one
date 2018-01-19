@@ -6,8 +6,16 @@
 	<title><%=htmlWebpackPlugin.options.title || 'Webpack App'%></title>
 </head>
 <body>
-	<div id="navbar"></div>
-	<div id="vip"></div>
-	<div id="activity"></div>
+	<div class="layout">
+		<aside id="menu"></aside>
+		<main class="layout vertical layout-main">
+			<div id="signin"></div>
+			<div id="toolbar"></div>
+			<div class="layout-content">
+				<div id="vip"></div>
+				<div id="activity"></div>
+			</div>
+		</main>
+	</div>
 </body>
 </html>

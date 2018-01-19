@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Card } from 'antd';
 import { withRouter } from 'react-router-dom';
 import { activityAction } from '../../action';
+import Bread from 'common-components/Bread';
+
+import './style.less';
+
+const paths = [
+  { text: 'Activity' },
+  { text: 'Home', link: '/#/activity/home' },
+];
 
 class Home extends Component {
   componentDidMount() {
@@ -9,18 +18,14 @@ class Home extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <h2>ACTIVITY LIST</h2>
-        <ul>
-        {
-          this.props.list.map((activity) => {
-            return <li key={activity.id}>{ activity.title }</li>;
-          })
-        }
-        </ul>
+    return [
+      <Bread paths={paths} key="breadcrumb" />,
+      <div key="activity-home" className="activity-home">
+        <Card>
+          <h1>WELCOME TO AVTIVITY SYSTEM</h1>
+        </Card>
       </div>
-    )
+    ];
   }
 }
 

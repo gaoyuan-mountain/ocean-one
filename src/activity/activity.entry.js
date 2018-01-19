@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Switch, HashRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import Bundle from './components/Lazyload';
+import Bundle from 'common-components/Lazyload';
 import PermissionGuard from './containers/PermissionGuard';
 import Home from 'bundle-loader?lazy&name=activity-home!./containers/Home';
+import SearchTable from 'bundle-loader?lazy&name=activity-searct-table!./containers/SearchTable';
 import store from './store';
 
 const createComponent = (component) => {
@@ -32,6 +33,7 @@ class Root extends React.PureComponent {
           <PermissionGuard profile={this.props.profile}>
             <Switch>
               <Route path="/activity/home" component={createComponent(Home)} />
+              <Route path="/activity/searchTable" component={createComponent(SearchTable)} />
             </Switch>
           </PermissionGuard>
         </HashRouter>

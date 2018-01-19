@@ -1,6 +1,6 @@
-import { Component } from 'react';
+import React from 'react';
 
-class Lazyload extends Component {
+class Lazyload extends React.Component {
   constructor(props) {
     super(props);
   }

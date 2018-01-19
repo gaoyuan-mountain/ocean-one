@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { Button } from 'antd';
 import { vipAction } from '../../action';
 
 class Home extends Component {
@@ -12,12 +13,13 @@ class Home extends Component {
     return (
       <div>
         <h2>VIP LIST</h2>
+        <Button type="primary">Primary</Button>
         <ul>
-        {
-          this.props.list.map((vip) => {
-            return <li key={vip.id}>{ vip.username }</li>;
-          })
-        }
+          {
+            this.props.list.map((vip) => {
+              return <li key={vip.id}>{ vip.username }</li>;
+            })
+          }
         </ul>
       </div>
     )

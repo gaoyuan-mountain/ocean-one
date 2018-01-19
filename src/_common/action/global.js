@@ -1,4 +1,4 @@
-import { PROFILE } from '../_constant/actionType';
+import { PROFILE } from '../constant/actionType';
 
 export function profile() {
   return {

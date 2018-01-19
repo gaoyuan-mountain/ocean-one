@@ -1,8 +1,9 @@
 {
-  "list|1-10": [
+  "list|10": [
     {
       "id": "@ID",
-      "title": "@CTITLE"
+      "title": "@CTITLE",
+      "status|1": [0, 1, 2]
     }
   ]
 }

@@ -1,4 +1,4 @@
-import global from '../../_reducer/global';
+import global from 'common-reducer/global';
 import vip from './vip';
 
 export default {

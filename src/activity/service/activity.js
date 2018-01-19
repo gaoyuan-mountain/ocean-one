@@ -1,4 +1,4 @@
-import Fetch from '../../_utils/fetch';
+import Fetch from 'common-utils/fetch';
 import { ACTIVITY_LIST } from '../constant/api';
 
 const activityService = {
