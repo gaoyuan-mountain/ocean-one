@@ -4,6 +4,10 @@
 
 yarn
 
+## 预编译公共库
+
+yarn dll
+
 ## 启动开发服务器
 
 yarn start
@@ -15,6 +19,11 @@ yarn run start:mock
 ## 编译
 
 yarn build
+
+## 部署
+
+- 在了解部署容器以后，可以添加postbuild的npm script，然后编写一个build.sh文件部署
+- 也可以直接将http server的根路径指向/build
 
 ## 访问地址
 
@@ -48,4 +57,10 @@ yarn build
 
 ## 关于antd主题定制
 
-- 系统已经支持antd的less变量覆盖，修改 /src/_style/ant-default-vars.less 文件，
+- 系统已经支持antd的less变量覆盖，修改 /src/_style/ant-default-vars.less 文件
+
+## 关于公共组件与child app
+
+- 二者都是为了实现代码复用
+- 公共组件应该是不会自己去加载外部数据的，所有数据通过props传入
+- child app可以有自己的数据加载逻辑和处理逻辑

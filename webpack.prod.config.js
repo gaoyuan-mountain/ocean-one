@@ -1,7 +1,13 @@
 const webpack = require('webpack');
 const path = require('path');
+const fs = require('fs');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const lessToJs = require('less-vars-to-js');
+
+const antDefaultVarsPath = path.join(__dirname, 'src/_common/style/ant-default-vars.less');
+const themeVariables = lessToJs(fs.readFileSync(antDefaultVarsPath, 'utf8'));
+// themeVariables["@icon-url"] = "'//localhost:8080/fonts/iconfont'"; //如果需要把字体文件配置到本地
 
 
 function getBabelConfig() {
@@ -60,7 +66,19 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        loader: ExtractTextPlugin.extract('css-loader!less-loader')
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader',
+            'postcss-loader',
+            {
+              loader: 'less-loader',
+              options: {
+                modifyVars: themeVariables
+              }
+            }
+          ]
+        })
       },
       {
         test: /\.js(x?)$/,
@@ -77,9 +95,9 @@ module.exports = {
       template: './index.hbs',
       filename: 'index.html'
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'common',
-      minChunks: module => module.context && module.context.indexOf('node_modules') !== -1
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require('./build/cached/manifest.json'),
     }),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {

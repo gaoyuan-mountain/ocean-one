@@ -2,9 +2,10 @@
   "name": "ocean-one",
   "description": "",
   "scripts": {
+    "dll": "webpack --config webpack.dll.config.js",
     "start": "webpack-dev-server",
     "start:mock": "node ./mock/mock-server.js",
-    "build": "rimraf build && npm run build-webpack",
+    "build": "rimraf build && npm run dll && npm run build-webpack",
     "build-webpack": "webpack --config webpack.prod.config.js",
     "eslint": "eslint src test --fix"
   },

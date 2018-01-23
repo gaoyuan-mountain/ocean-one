@@ -10,10 +10,12 @@ const themeVariables = lessToJs(fs.readFileSync(antDefaultVarsPath, 'utf8'));
 // themeVariables["@icon-url"] = "'//localhost:8080/fonts/iconfont'"; //如果需要把字体文件配置到本地
 
 module.exports = {
-  entry: __dirname + '/src/index.js',
+  entry: {
+    app: __dirname + '/src/index.js',
+  },
   output: {
     path: process.cwd() + '/build',
-    filename: '[name].[hash].bundle.js',
+    filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js',
     publicPath: '/',
   },
@@ -91,11 +93,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'OCEAN EXAPMLE',
       template: './index.hbs',
-      filename: 'index.html'
+      filename: 'index.html',
+      chunks: ['vendor', 'app']
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'common',
-      minChunks: module => module.context && module.context.indexOf('node_modules') !== -1
-    })
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require('./build/cached/manifest.json'),
+    }),
   ],
 };
