@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card } from 'antd';
 import { withRouter } from 'react-router-dom';
-import { activityAction } from '../../action';
+import { activityAction } from '../../redux/activity';
 import Bread from 'common-components/Bread';
 
 import './style.less';

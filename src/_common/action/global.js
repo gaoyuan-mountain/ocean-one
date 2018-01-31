@@ -1,8 +1,4 @@
 import { PROFILE } from '../constant/actionType';
+import { createAction } from 'redux-actions';
 
-export function profile() {
-  return {
-    type: PROFILE.ACTION,
-    payload: {},
-  };
-}
+export const profile = createAction(PROFILE.ACTION);

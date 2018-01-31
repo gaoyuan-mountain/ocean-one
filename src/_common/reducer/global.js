@@ -1,4 +1,5 @@
 import { createReducer } from '../utils/helper';
+
 import { PROFILE } from '../constant/actionType';
 
 export const initialState = {

@@ -5,8 +5,13 @@ body {
 
 .layout {
   display: flex;
+  height: 100vh;
   &.vertical {
     flex-direction: column;
+  }
+  .layout-content {
+    flex: 1;
+    overflow: auto;
   }
 }
 
