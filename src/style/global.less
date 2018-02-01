@@ -5,8 +5,13 @@ body {
 
 .layout {
   display: flex;
+  height: 100vh;
   &.vertical {
     flex-direction: column;
+  }
+  .layout-content {
+    flex: 1;
+    overflow: auto;
   }
 }
 
@@ -37,3 +42,9 @@ body {
 ::-moz-placeholder { color: #a3afb7; }
 ::-webkit-input-placeholder { color:#a3afb7; }
 :-ms-input-placeholder { color:#a3afb7; }
+
+.breadcrumb {
+  background: #fff;
+  padding: 16px 32px;
+  border-bottom: 1px solid #e8e8e8;
+}

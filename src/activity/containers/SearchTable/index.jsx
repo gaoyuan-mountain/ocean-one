@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, Form, Row, Col, Input, Button, Select, Table, Badge } from 'antd';
 import { withRouter } from 'react-router-dom';
-import { activityAction } from '../../action';
-import Bread from 'common-components/Bread';
+import { activityAction } from '../../redux/activity';
+import Bread from 'components/Bread';
 
 import './style.less';
 
@@ -40,7 +40,11 @@ const paths = [
 
 class SearchTable extends Component {
   componentDidMount() {
-    this.props.dispatch(activityAction.list());
+    this.props.dispatch(activityAction.list({
+      callback: () => {
+        console.log('callback function called when activity fetch list successfully');
+      }
+    }));
   }
 
   getSearchFields(fieldLabel, fieldKey) {

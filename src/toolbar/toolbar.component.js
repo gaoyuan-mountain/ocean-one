@@ -1,8 +1,10 @@
 import React from 'react';
 import { Icon, Badge } from 'antd';
-import { MsgTrigger } from '../_common/utils/message';
+import { message } from 'ocean-utils';
 
 import './style.less';
+
+const { MsgTrigger } = message;
 
 export default class Toolbar extends React.Component {
   constructor() {
