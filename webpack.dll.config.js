@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const vendors = [
   'antd', 'axios', 'classnames', 'prop-types', 'react',
   'react-dom', 'react-redux', 'react-router-dom', 'redux',
-  'redux-logger', 'redux-saga', 'single-spa', 'single-spa-react'
+  'redux-saga', 'single-spa', 'single-spa-react'
 ];
 
 module.exports = {
@@ -16,6 +16,11 @@ module.exports = {
     vendor: vendors,
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
     new webpack.DllPlugin({
       path: process.cwd() + '/build/cached/manifest.json',
       name: '[name]Library'

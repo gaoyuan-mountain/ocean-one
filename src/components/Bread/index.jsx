@@ -1,8 +1,6 @@
 import React from 'react';
 import { Breadcrumb } from 'antd';
 
-import './style.less';
-
 class Bread extends React.Component {
   constructor(props) {
     super(props);

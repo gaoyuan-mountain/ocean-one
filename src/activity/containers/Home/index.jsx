@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Card } from 'antd';
 import { withRouter } from 'react-router-dom';
 import { activityAction } from '../../redux/activity';
-import Bread from 'common-components/Bread';
+import Bread from 'components/Bread';
 
 import './style.less';
 

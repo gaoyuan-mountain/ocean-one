@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-// import { globalAction } from '../../action';
+import { authAction } from '../../redux/auth';
 
 class PermissionGuard extends React.PureComponent {
   static propTypes = {
@@ -17,7 +17,7 @@ class PermissionGuard extends React.PureComponent {
 
   componentWillMount() {
     if (!this.props.profile.id) {
-      // this.props.dispatch(globalAction.profile());
+      this.props.dispatch(authAction.profile());
     }
   }
 
@@ -33,10 +33,10 @@ class PermissionGuard extends React.PureComponent {
   }
 }
 
-const mapStateToProps = () => {
+const mapStateToProps = (state) => {
   return {
-    profile: { id: 1 },
-    profileReady: true,
+    profile: state.auth.profile,
+    profileReady: state.auth.profileReady,
   };
 };
 

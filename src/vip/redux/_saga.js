@@ -1,8 +1,8 @@
 import { fork } from 'redux-saga/effects';
-import { activitySaga } from './activity';
+import { vipSaga } from './vip';
 import { authSaga } from './auth';
 
 export default function* () {
-  yield fork(activitySaga);
+  yield fork(vipSaga);
   yield fork(authSaga);
 }

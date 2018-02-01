@@ -47,9 +47,9 @@ yarn build
 
 ## 关于公用部分抽出的原则
 
-- 公用部分分为公共组件和共用方法。
-- 公共组件是独立的app，如navbar。独立实现并且在index.js中注册，通过生效路由逻辑来控制显示。
-- 公用方法包括action, constant, reducer, saga, service, store, util。当这些方法需要在多个子项目中反复使用，就可以抽出到公共方法中。抽出之前需要在项目组内进行讨论确认。严格避免出现功能重复的公共抽象。
+- 公共方法可以抽出到ocean-utils中。当这些方法需要在多个子项目中反复使用，就可以抽出到公共方法中。抽出之前需要在项目组内进行讨论确认。严格避免出现功能重复的公共抽象。
+- 需要根据路由来渲染的组件，需要实现成独立的child app。
+- 公共组件抽出到/src/components中。
 
 ## 关于按需加载
 
@@ -57,10 +57,32 @@ yarn build
 
 ## 关于antd主题定制
 
-- 系统已经支持antd的less变量覆盖，修改 /src/_style/ant-default-vars.less 文件
+- 系统已经支持antd的less变量覆盖，修改 /src/style/ant-default-vars.less 文件
 
 ## 关于公共组件与child app
 
 - 二者都是为了实现代码复用
 - 公共组件应该是不会自己去加载外部数据的，所有数据通过props传入
-- child app可以有自己的数据加载逻辑和处理逻辑
+- child app可以有自己的数据加载逻辑和处理逻辑，并且按路由渲染到指定id的dom中
+
+## 关于redux
+- 在1.2版本中，调整了redux相关文件组织结构。去掉了原来了/reducer，/actions，/sagas。把他们集中在了/redux中，便于统一修改。
+
+
+## 常见问题
+### 如何在调用action时传入参数，比如callback
+- 可以参考activity下/containers/SearchTable中对于activityAction.list的调用。
+
+### 架构里用到了redux-actions，如何使用
+- 参考 https://www.gitbook.com/book/vinnymac/redux-actions
+
+### ocean-utils都提供了哪些工具
+- configStore(env)(initialState, rootReducer, rootSaga)  生成store，env要求development/production
+- fetch  暴露出axios
+- helper/actionGenerator  生成actionType对象
+- helper/createSaga  生成saga
+- message  简单的事件队列，多用于child app之间通讯
+- message/MsgRegister  注册事件
+- message/MsgUnregister  取消注册
+- message/MsgTrigger  触发事件
+

@@ -1,7 +1,7 @@
 import { registerApplication, start } from 'single-spa';
 import 'babel-polyfill';
 
-import './_common/style/global.less';
+import './style/global.less';
 
 function hashPrefix(prefix) {
   return (location) => {
@@ -21,6 +21,6 @@ registerApplication('menu', () => import(/* webpackChunkName: "menu" */ './menu/
 registerApplication('toolbar', () => import(/* webpackChunkName: "toolbar" */ './toolbar/toolbar.ocean.js'), hashPrefixExcept('/signin'));
 registerApplication('activity', () => import(/* webpackChunkName: "activity" */'./activity/activity.ocean.js'), hashPrefix('/activity'));
 registerApplication('vip', () => import(/* webpackChunkName: "vip" */ './vip/vip.ocean.js'), hashPrefix('/vip'));
-registerApplication('signin', () => import(/* webpackChunkName: "signin" */ './signin/signin.ocean.js'), hashPrefix('/signin'));
+// registerApplication('signin', () => import(/* webpackChunkName: "signin" */ './signin/signin.ocean.js'), hashPrefix('/signin'));
 
 start();

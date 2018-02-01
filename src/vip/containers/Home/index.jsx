@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Button } from 'antd';
-import { vipAction } from '../../action';
+import { vipAction } from '../../redux/vip';
 
 class Home extends Component {
   componentDidMount() {

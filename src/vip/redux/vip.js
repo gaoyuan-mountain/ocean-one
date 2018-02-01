@@ -1,24 +1,23 @@
 import { fork } from 'redux-saga/effects';
 import { createAction, handleActions } from 'redux-actions';
-
-import { ACTIVITY_LIST } from '../constant/actionType';
-import activityService from '../service/activity';
+import { VIP_LIST } from '../constant/actionType';
 import { helper } from 'ocean-utils';
+import vipService from '../service/vip';
 
 const { createSaga } = helper;
 
 // ACTION
-export const activityAction = {
-  list: createAction(ACTIVITY_LIST.ACTION)
+export const vipAction = {
+  list: createAction(VIP_LIST.ACTION),
 };
 
 // SAGA
 const list = createSaga([{
-  promise: activityService.list,
+  promise: vipService.list,
   payload: (payload) => ({ list: payload.list }),
-}], ACTIVITY_LIST);
+}], VIP_LIST);
 
-export function* activitySaga() {
+export function* vipSaga() {
   yield fork(list);
 }
 
@@ -27,8 +26,8 @@ const initialState = {
   list: [],
 };
 
-export const activityReducer = handleActions({
-  [ACTIVITY_LIST.SUCCESS]: (state, action) => ({
+export const vipReducer = handleActions({
+  [VIP_LIST.SUCCESS]: (state, action) => ({
     ...state,
     list: action.payload.list,
   })

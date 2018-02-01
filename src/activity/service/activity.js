@@ -1,9 +1,9 @@
-import Fetch from 'common-utils/fetch';
+import { fetch } from 'ocean-utils';
 import { ACTIVITY_LIST } from '../constant/api';
 
 const activityService = {
   list() {
-    return Fetch.get(ACTIVITY_LIST);
+    return fetch.get(ACTIVITY_LIST);
   }
 };
 

@@ -1,7 +1,7 @@
-import { activityReducer } from './activity';
+import { vipReducer } from './vip';
 import { authReducer } from './auth';
 
 export default {
-  activity: activityReducer,
+  vip: vipReducer,
   auth: authReducer,
 };

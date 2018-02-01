@@ -1,8 +1,10 @@
 import React from 'react';
 import { Menu, Icon } from 'antd';
-import { MsgRegister, MsgUnregister } from '../_common/utils/message';
+import { message } from 'ocean-utils';
 
 import './style.less';
+
+const { MsgRegister, MsgUnregister } = message;
 
 export default class Navbar extends React.Component {
   constructor() {

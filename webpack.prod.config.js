@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const lessToJs = require('less-vars-to-js');
 
-const antDefaultVarsPath = path.join(__dirname, 'src/_common/style/ant-default-vars.less');
+const antDefaultVarsPath = path.join(__dirname, 'src/style/ant-default-vars.less');
 const themeVariables = lessToJs(fs.readFileSync(antDefaultVarsPath, 'utf8'));
 // themeVariables["@icon-url"] = "'//localhost:8080/fonts/iconfont'"; //如果需要把字体文件配置到本地
 
@@ -44,14 +44,7 @@ module.exports = {
     ],
     alias: {
       'single-spa': path.resolve(__dirname, 'node_modules/single-spa/lib/single-spa.js'),
-      'common-components': path.resolve(__dirname, 'src/_common/components'),
-      'common-action': path.resolve(__dirname, 'src/_common/action'),
-      'common-constant': path.resolve(__dirname, 'src/_common/constant'),
-      'common-reducer': path.resolve(__dirname, 'src/_common/reducer'),
-      'common-saga': path.resolve(__dirname, 'src/_common/saga'),
-      'common-service': path.resolve(__dirname, 'src/_common/service'),
-      'common-store': path.resolve(__dirname, 'src/_common/store'),
-      'common-utils': path.resolve(__dirname, 'src/_common/utils'),
+      'components': path.resolve(__dirname, 'src/components'),
     },
   },
   module: {
