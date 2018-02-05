@@ -352,7 +352,7 @@ module.exports = {
     "react/jsx-indent-props": [0, 2],// jsx语法换行缩进几个空格（或制表符）
     "react/jsx-key": 2, // 在循环中,组件应该设置不同的 key
     "react/jsx-max-props-per-line": 0, // jsx 每个属性应该写在单独一行（默认），也可以设置每行的个数
-    "react/jsx-no-bind": 2, // 不必要的地方不使用bind
+    "react/jsx-no-bind": 0, // 不必要的地方不使用bind
     "react/jsx-no-comment-textnodes": 2, // 检测注释的正确性
     "react/jsx-no-duplicate-props": 2, // 给jsx设置同名的属性会警告
     "react/jsx-no-literals": 0, // 不要设置字面的值，比如 var Hello = <div>test</div>; 而用 var Hello = <div>{'test'}</div>;
