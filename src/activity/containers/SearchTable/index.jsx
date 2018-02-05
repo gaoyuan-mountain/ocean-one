@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Card, Form, Row, Col, Input, Button, Select, Table, Badge } from 'antd';
 import { withRouter } from 'react-router-dom';
 import { activityAction } from '../../redux/activity';
@@ -20,9 +21,9 @@ const columns = [{
   title: '活动状态',
   dataIndex: 'status',
   key: 'status',
-  render: (text) => (
-    text === 0 ? <Badge status="error" text="已结束" /> : <Badge status="success" text="进行中" />
-  ),
+  render: (text) => {
+    return text === 0 ? <Badge status="error" text="已结束" /> : <Badge status="success" text="进行中" />
+  },
 }, {
   title: '操作',
   key: 'action',
@@ -39,6 +40,12 @@ const paths = [
 ];
 
 class SearchTable extends Component {
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    form: PropTypes.object.isRequired,
+    list: PropTypes.array.isRequired,
+  }
+
   componentDidMount() {
     this.props.dispatch(activityAction.list({
       callback: () => {

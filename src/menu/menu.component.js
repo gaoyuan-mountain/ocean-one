@@ -53,19 +53,19 @@ export default class Navbar extends React.Component {
           defaultSelectedKeys={[window.location.hash]}
         >
           <Menu.SubMenu key="activity" title={<span>ACTIVITY</span>}>
-            <Menu.Item key="#/activity/home">
+            <Menu.Item key="/#/activity/home">
               <Icon type="pie-chart" />
               <span>首页</span>
             </Menu.Item>
             <Menu.ItemGroup key="activity-table" title="表格">
-              <Menu.Item key="#/activity/searchTable">
+              <Menu.Item key="/#/activity/searchTable">
                 <Icon type="table" />
                 <span>查询表格</span>
               </Menu.Item>
             </Menu.ItemGroup>
           </Menu.SubMenu>
           <Menu.SubMenu key="vip" title={<span>VIP</span>}>
-            <Menu.Item key="#/vip/home">
+            <Menu.Item key="/#/vip/home">
               <Icon type="desktop" />
               <span>首页</span>
             </Menu.Item>

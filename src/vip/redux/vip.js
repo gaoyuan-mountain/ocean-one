@@ -17,7 +17,7 @@ const list = createSaga([{
   payload: (payload) => ({ list: payload.list }),
 }], VIP_LIST);
 
-export function* vipSaga() {
+export function *vipSaga() {
   yield fork(list);
 }
 

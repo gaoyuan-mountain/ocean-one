@@ -6,13 +6,10 @@ import { authAction } from '../../redux/auth';
 
 class PermissionGuard extends React.PureComponent {
   static propTypes = {
+    children: PropTypes.element.isRequired,
     profile: PropTypes.object.isRequired,
     dispatch: PropTypes.func.isRequired,
     profileReady: PropTypes.bool.isRequired,
-  }
-
-  constructor(props) {
-    super(props);
   }
 
   componentWillMount() {

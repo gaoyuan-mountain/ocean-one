@@ -7,10 +7,6 @@ import './style.less';
 const { MsgTrigger } = message;
 
 export default class Toolbar extends React.Component {
-  constructor() {
-    super();
-  }
-
   componentDidCatch(error) {
     console.error(error);
   }

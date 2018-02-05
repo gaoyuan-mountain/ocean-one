@@ -23,7 +23,7 @@ const login = createSaga([{
   payload: payload => payload,
 }], LOGIN);
 
-export function* authSaga() {
+export function *authSaga() {
   yield fork(profile);
   yield fork(login);
 }

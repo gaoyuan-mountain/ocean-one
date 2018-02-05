@@ -10,10 +10,12 @@ import store from './redux/_store';
 
 const createComponent = (component) => {
   return () => {
-    let AsyncComponent = (
+    const AsyncComponent = (
       <Lazyload load={component}>
         {
-          (Async) => Async ? <Async /> : <div>LOADING...</div>
+          (Async) => {
+            return Async ? <Async /> : <div>LOADING...</div>;
+          }
         }
       </Lazyload>
     );
@@ -30,7 +32,7 @@ class Root extends React.PureComponent {
     return (
       <Provider store={store}>
         <HashRouter>
-          <PermissionGuard profile={this.props.profile}>
+          <PermissionGuard>
             <Switch>
               <Route path="/activity/home" component={createComponent(Home)} />
               <Route path="/activity/searchTable" component={createComponent(SearchTable)} />

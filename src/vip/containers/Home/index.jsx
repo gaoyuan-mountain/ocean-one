@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Button } from 'antd';
 import { vipAction } from '../../redux/vip';
 
 class Home extends Component {
+  static propTypes = {
+    list: PropTypes.array.isRequired,
+    dispatch: PropTypes.func.isRequired,
+  }
+
   componentDidMount() {
     this.props.dispatch(vipAction.list());
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card } from 'antd';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { activityAction } from '../../redux/activity';
 import Bread from 'components/Bread';
@@ -13,6 +14,10 @@ const paths = [
 ];
 
 class Home extends Component {
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired,
+  }
+
   componentDidMount() {
     this.props.dispatch(activityAction.list());
   }

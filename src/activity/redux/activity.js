@@ -18,7 +18,7 @@ const list = createSaga([{
   payload: (payload) => ({ list: payload.list }),
 }], ACTIVITY_LIST);
 
-export function* activitySaga() {
+export function *activitySaga() {
   yield fork(list);
 }
 
