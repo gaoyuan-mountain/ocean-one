@@ -27,15 +27,12 @@ yarn build
 
 ## 访问地址
 
-<http://localhost:8080>
+<http://localhost:8888/activity/home>
 
 ## 支持特性
 
-- 支持子项目概念，子项目按需加载，子项目内部按路由加载
 - react16、react-router4、redux、saga
-- 子项目可以通过很小的修改变为独立可运行项目
 - 支持hmr
-- 支持异构，目前只引入了react的loader，也可支持angular等架构，可以参考 https://github.com/CanopyTax/single-spa
 - 支持mockjs语法，独立运行mock server
 
 
@@ -48,8 +45,7 @@ yarn build
 ## 关于公用部分抽出的原则
 
 - 公共方法可以抽出到ocean-utils中。当这些方法需要在多个子项目中反复使用，就可以抽出到公共方法中。抽出之前需要在项目组内进行讨论确认。严格避免出现功能重复的公共抽象。
-- 需要根据路由来渲染的组件，需要实现成独立的child app。
-- 公共组件抽出到/src/components中。
+- 公共组件抽出到/src/component中。
 
 ## 关于按需加载
 
@@ -58,12 +54,6 @@ yarn build
 ## 关于antd主题定制
 
 - 系统已经支持antd的less变量覆盖，修改 /src/style/ant-default-vars.less 文件
-
-## 关于公共组件与child app
-
-- 二者都是为了实现代码复用
-- 公共组件应该是不会自己去加载外部数据的，所有数据通过props传入
-- child app可以有自己的数据加载逻辑和处理逻辑，并且按路由渲染到指定id的dom中
 
 ## 关于redux
 - 在1.2版本中，调整了redux相关文件组织结构。去掉了原来了/reducer，/actions，/sagas。把他们集中在了/redux中，便于统一修改。

@@ -1,26 +1,68 @@
-import { registerApplication, start } from 'single-spa';
-import 'babel-polyfill';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Switch, BrowserRouter, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { Lazyload } from 'ocean-utils';
+import PermissionGuard from './container/PermissionGuard';
+import Home from 'bundle-loader?lazy&name=activity-home!./container/Home';
+import SearchTable from 'bundle-loader?lazy&name=activity-searct-table!./container/SearchTable';
+import Navbar from 'component/Navbar';
+import Toolbar from 'component/Toolbar';
+import store from './redux/_store';
 
 import './style/global.less';
 
-function hashPrefix(prefix) {
-  return (location) => {
-    return location.hash.indexOf(`#${prefix}`) === 0;
+const createComponent = (component) => {
+  return () => {
+    const AsyncComponent = (
+      <Lazyload load={component}>
+        {
+          (Async) => {
+            return Async ? <Async /> : <div>LOADING...</div>;
+          }
+        }
+      </Lazyload>
+    );
+    return AsyncComponent;
   };
+};
+
+class Root extends React.PureComponent {
+  componentDidCatch(error) {
+    console.error(error);
+  }
+
+  render() {
+    return (
+      <Provider store={store}>
+        <BrowserRouter>
+          <PermissionGuard>
+            <div className="layout">
+              <Navbar />
+              <main className="layout vertical layout-main">
+                <Toolbar />
+                <div className="layout-content">
+                  <Switch>
+                    <Route path="/activity/home" component={createComponent(Home)} />
+                    <Route path="/activity/searchTable" component={createComponent(SearchTable)} />
+                  </Switch>
+                </div>
+              </main>
+            </div>
+          </PermissionGuard>
+        </BrowserRouter>
+      </Provider>
+    );
+  }
 }
 
-function hashPrefixExcept(prefix) {
-  return (location) => {
-    return location.hash.indexOf(`#${prefix}`) !== 0;
-  };
-}
+ReactDOM.render(
+  <Root />,
+  document.getElementById('app')
+);
 
-// TIPS: 这里用到了import()，是ecmascript stage3定义的方法，作用是动态import，返回promise。配合babel的话，需要babel-plugin-syntax-dynamic-import
-// TIPS: registerApplication支持两种写法，当两个参数时，参数1代表appName，参数2代表生效路由前缀，加载器会默认使用import()。三个参数时，参数1代表appName，参数2代表加载器，参数3代表生效路由前缀
-registerApplication('menu', () => import(/* webpackChunkName: "menu" */ './menu/menu.ocean.js'), hashPrefixExcept('/signin'));
-registerApplication('toolbar', () => import(/* webpackChunkName: "toolbar" */ './toolbar/toolbar.ocean.js'), hashPrefixExcept('/signin'));
-registerApplication('activity', () => import(/* webpackChunkName: "activity" */'./activity/activity.ocean.js'), hashPrefix('/activity'));
-registerApplication('vip', () => import(/* webpackChunkName: "vip" */ './vip/vip.ocean.js'), hashPrefix('/vip'));
-// registerApplication('signin', () => import(/* webpackChunkName: "signin" */ './signin/signin.ocean.js'), hashPrefix('/signin'));
+// 异常监控管理平台
+window.addEventListener('error', (e) => {
+  // 向平台发送错误
 
-start();
+});

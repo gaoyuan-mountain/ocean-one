@@ -39,6 +39,7 @@ const loadConfig = (options) => {
   const moduleName = options.moduleName;
   const htmlArr = html.map( ( item, i ) => {
     return new HtmlWebpackPlugin({
+      title: options.title,
       filename: item.filename,
       template: item.template,
       chunks: item.chunks,
@@ -68,8 +69,7 @@ const loadConfig = (options) => {
       extensions: ['.js', '.jsx', '.less', '.png', '.jpg', '.gif'],
       //模块别名定义，方便直接引用别名
       alias: {
-        'single-spa': path.resolve(__dirname, 'node_modules/single-spa/lib/single-spa.js'),
-        'components': path.resolve(__dirname, 'src/components'),
+        'component': path.resolve(__dirname, './src/component'),
       },
       // 参与编译的文件
       modules: [
@@ -96,6 +96,12 @@ const loadConfig = (options) => {
       hot: true,
       port: 8888,
       publicPath: `${context}/`,
+      historyApiFallback: {
+        rewrites: [
+          //多页面，则可以设置二级目录来区分
+          { from: /^.*$/, to: `${context}/${moduleName}.html` }
+        ]
+      },
       proxy: {
         '/api': {
           target: 'http://localhost:7001',

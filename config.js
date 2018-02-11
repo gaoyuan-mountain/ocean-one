@@ -12,7 +12,7 @@ module.exports = {
       'react-dom', 'react-redux', 'react-router-dom', 'redux',
       'redux-saga', 'single-spa', 'single-spa-react'
     ],
-    [`${moduleName}`]: [`./src/index.js`]
+    [`${moduleName}`]: ['babel-polyfill', './src/index.js']
   },
   html: [{
     filename: `${moduleName}.html`,

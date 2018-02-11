@@ -4,6 +4,7 @@ const fs = require('fs');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const appPath = path.resolve(__dirname, 'public');
 const lessToJs = require('less-vars-to-js');
 
 const antDefaultVarsPath = path.join(__dirname, 'src/style/ant-default-vars.less');
@@ -39,13 +40,17 @@ const loadConfig = (options) => {
   const context = options.context;
   const entry = options.entry;
   const pathInMappingJson = options.pathInMappingJson;
-  delete entry.vendor
+  delete entry.vendor;
   const webpackConfig = {
     devtool: 'source-map', // 生成 source-map文件 原始源码
     resolve: {
       extensions: ['.js', '.jsx', '.css', '.less', '.png', '.jpg', '.gif'],
+      //模块别名定义，方便直接引用别名
+      alias: {
+        'component': path.resolve(__dirname, './src/component'),
+      },
       modules: [
-        'client',
+        'src',
         'node_modules',
       ],
     },

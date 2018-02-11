@@ -84,8 +84,6 @@
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
     "redux-saga": "^0.16.0",
-    "single-spa": "^3.8.0",
-    "single-spa-react": "^2.0.4",
     "webpack-dev-server": "^2.9.7",
     "zone.js": "^0.8.18"
   }
