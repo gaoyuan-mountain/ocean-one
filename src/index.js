@@ -4,6 +4,7 @@ import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { Lazyload } from 'ocean-utils';
 import PermissionGuard from './container/PermissionGuard';
+import Login from 'bundle-loader?lazy&name=loogin!./container/Login';
 import Home from 'bundle-loader?lazy&name=activity-home!./container/Home';
 import SearchTable from 'bundle-loader?lazy&name=activity-searct-table!./container/SearchTable';
 import Navbar from 'component/Navbar';
@@ -36,20 +37,25 @@ class Root extends React.PureComponent {
     return (
       <Provider store={store}>
         <BrowserRouter>
-          <PermissionGuard>
-            <div className="layout">
-              <Navbar />
-              <main className="layout vertical layout-main">
-                <Toolbar />
-                <div className="layout-content">
-                  <Switch>
-                    <Route path="/activity/home" component={createComponent(Home)} />
-                    <Route path="/activity/searchTable" component={createComponent(SearchTable)} />
-                  </Switch>
+          <Switch>
+            <Route path="/activity/login" component={createComponent(Login)} exact />
+            <Route path='/'>
+              <PermissionGuard>
+                <div className="layout">
+                  <Navbar />
+                  <main className="layout vertical layout-main">
+                    <Toolbar />
+                    <div className="layout-content">
+                      <Switch>
+                        <Route path="/activity/home" component={createComponent(Home)} />
+                        <Route path="/activity/searchTable" component={createComponent(SearchTable)} />
+                      </Switch>
+                    </div>
+                  </main>
                 </div>
-              </main>
-            </div>
-          </PermissionGuard>
+              </PermissionGuard>
+            </Route>
+          </Switch>
         </BrowserRouter>
       </Provider>
     );

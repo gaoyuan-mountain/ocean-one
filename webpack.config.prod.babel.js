@@ -48,6 +48,7 @@ const loadConfig = (options) => {
       //模块别名定义，方便直接引用别名
       alias: {
         'component': path.resolve(__dirname, './src/component'),
+        'service': path.resolve(__dirname, './src/service'),
       },
       modules: [
         'src',

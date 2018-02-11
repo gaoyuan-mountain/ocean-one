@@ -7,4 +7,4 @@ export const ACTIVITY_LIST = prefix('activity/list');
 export const PROFILE = prefix('profile');
 
 // 登录
-export const SIGN_IN = prefix('signin');
+export const LOGIN = prefix('login');

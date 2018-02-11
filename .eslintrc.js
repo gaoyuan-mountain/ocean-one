@@ -11,7 +11,7 @@ module.exports = {
     "no-console": 0, // 是否允许 console
     "no-constant-condition": 2, // 是否允许使用常量式表达式 if (false) { }
     "no-control-regex": 2, // 是否允许在正则表达式中使用控制字符
-    "no-debugger": 2, // 是否允许使用 debugger
+    "no-debugger": 0, // 是否允许使用 debugger
     "no-dupe-args": 2, // 函数参数是否允许有重复的，如果设置了严格模式，可以不用设置该选项
     "no-dupe-keys": 2, // 是否允许对象中有相同的key
     "no-duplicate-case": 2, // 检测case语句中，是否有重复的case变量值

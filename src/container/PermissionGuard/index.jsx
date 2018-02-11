@@ -25,7 +25,7 @@ class PermissionGuard extends React.PureComponent {
     } else if (this.props.profile.id) {
       return this.props.children;
     }
-    window.location = '/#/forbidden';
+    window.location = '/activity/login';
     return null;
   }
 }
