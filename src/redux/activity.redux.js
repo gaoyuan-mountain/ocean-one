@@ -3,9 +3,8 @@ import { createAction, handleActions } from 'redux-actions';
 
 import { ACTIVITY_LIST } from '../constant/actionType';
 import activityService from '../service/activity';
-import { helper } from 'ocean-utils';
-
-const { createSaga } = helper;
+import { sagaHelper, reducerHelper } from 'ocean-utils';
+import store from '../store';
 
 // ACTION
 export const activityAction = {
@@ -13,7 +12,7 @@ export const activityAction = {
 };
 
 // SAGA
-const list = createSaga([{
+const list = sagaHelper.createSaga([{
   promise: activityService.list,
   payload: (payload) => ({ list: payload.list }),
 }], ACTIVITY_LIST);
@@ -21,6 +20,8 @@ const list = createSaga([{
 export function *activitySaga() {
   yield fork(list);
 }
+
+sagaHelper.injectSagas({ activitySaga });
 
 // REDUCER
 const initialState = {
@@ -33,3 +34,9 @@ export const activityReducer = handleActions({
     list: action.payload.list,
   })
 }, initialState);
+
+reducerHelper.injectReducer(store, {
+  key: 'activity',
+  reducer: activityReducer,
+});
+

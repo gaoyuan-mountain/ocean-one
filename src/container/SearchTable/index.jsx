@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Card, Form, Row, Col, Input, Button, Select, Table, Badge } from 'antd';
 import { withRouter } from 'react-router-dom';
-import { activityAction } from '../../redux/activity';
+import { activityAction } from '../../redux/activity.redux';
 import Bread from 'component/Bread';
 
 import './style.less';

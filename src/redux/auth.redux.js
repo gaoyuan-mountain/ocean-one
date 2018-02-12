@@ -1,10 +1,10 @@
 import { fork } from 'redux-saga/effects';
 import { createAction, handleActions } from 'redux-actions';
 import { PROFILE, LOGIN } from '../constant/actionType';
-import { helper } from 'ocean-utils';
+import { sagaHelper, reducerHelper } from 'ocean-utils';
 import authService from '../service/auth';
+import store from '../store';
 
-const { createSaga } = helper;
 
 // ACTION
 export const authAction = {
@@ -13,12 +13,12 @@ export const authAction = {
 };
 
 // SAGA
-const profile = createSaga([{
+const profile = sagaHelper.createSaga([{
   promise: authService.profile,
   payload: payload => ({profile: payload}),
 }], PROFILE);
 
-const login = createSaga([{
+const login = sagaHelper.createSaga([{
   promise: authService.login,
   payload: payload => payload,
 }], LOGIN);
@@ -27,6 +27,8 @@ export function *authSaga() {
   yield fork(profile);
   yield fork(login);
 }
+
+sagaHelper.injectSagas({ authSaga });
 
 // REDUCER
 const initialState = {
@@ -43,3 +45,8 @@ export const authReducer = handleActions({
       profileReady: true,
     })
 }, initialState);
+
+reducerHelper.injectReducer(store, {
+  key: 'auth',
+  reducer: authReducer,
+});

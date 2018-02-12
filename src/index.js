@@ -9,7 +9,7 @@ import Home from 'bundle-loader?lazy&name=activity-home!./container/Home';
 import SearchTable from 'bundle-loader?lazy&name=activity-searct-table!./container/SearchTable';
 import Navbar from 'component/Navbar';
 import Toolbar from 'component/Toolbar';
-import store from './redux/_store';
+import store from './store';
 
 import './style/global.less';
 
