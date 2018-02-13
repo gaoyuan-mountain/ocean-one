@@ -19,14 +19,14 @@ class PermissionGuard extends React.PureComponent {
   }
 
   render() {
-    const { profileReady } = this.props;
-    if (!profileReady) {
-      return <div>LOADING...</div>;
-    } else if (this.props.profile.id) {
+    // const { profileReady } = this.props;
+    // if (!profileReady) {
+    //   return <div>LOADING...</div>;
+    // } else if (this.props.profile.id) {
       return this.props.children;
-    }
-    window.location = '/activity/login';
-    return null;
+    // }
+    // window.location = '/activity/login';
+    // return null;
   }
 }
 

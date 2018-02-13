@@ -59,7 +59,7 @@ const loadConfig = (options) => {
     output: {
       path: path.join(appPath, 'dist'),
       filename: '[name].[chunkhash].js',
-      publicPath: `${context}/dist/`,
+      publicPath: `${pathInMappingJson}`,
       sourceMapFilename: 'map/[file].map',
     },
 

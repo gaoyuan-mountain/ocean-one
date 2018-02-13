@@ -5,12 +5,12 @@ module.exports = {
   title: 'ocean example',
   context: '', //todo: 二级目录
   moduleName,
-  pathInMappingJson: `//localhost:8888/${moduleName}/`,
+  pathInMappingJson: `//localhost:8080/${moduleName}/`,
   entry: {
     vendor: [
       'antd', 'axios', 'classnames', 'prop-types', 'react',
       'react-dom', 'react-redux', 'react-router-dom', 'redux',
-      'redux-saga', 'single-spa', 'single-spa-react'
+      'redux-saga',
     ],
     [`${moduleName}`]: ['babel-polyfill', './src/index.js']
   },

@@ -1,14 +1,14 @@
 {
   "title": "ocean example",
-  "activity-home.js": "//localhost:8888/ocean/1.6085f79a0bfa77753a80.js",
-  "activity-home.js.map": "//localhost:8888/ocean/map/1.6085f79a0bfa77753a80.js.map",
-  "activity-searct-table.js": "//localhost:8888/ocean/0.6106f2115b83c13c85db.js",
-  "activity-searct-table.js.map": "//localhost:8888/ocean/map/0.6106f2115b83c13c85db.js.map",
-  "login.png": "//localhost:8888/ocean/dc647af6851a261f5816f77a6103748b.png",
-  "loogin.js": "//localhost:8888/ocean/2.82a09a53c73109a1a630.js",
-  "loogin.js.map": "//localhost:8888/ocean/map/2.82a09a53c73109a1a630.js.map",
-  "ocean.css": "//localhost:8888/ocean/css/style.ocean.50b2b7912fb7dfd89787.css",
-  "ocean.css.map": "//localhost:8888/ocean/map/css/style.ocean.50b2b7912fb7dfd89787.css.map",
-  "ocean.js": "//localhost:8888/ocean/ocean.50b2b7912fb7dfd89787.js",
-  "ocean.js.map": "//localhost:8888/ocean/map/ocean.50b2b7912fb7dfd89787.js.map"
+  "activity-home.js": "//localhost:8080/ocean/1.9429fab821dd850fd33b.js",
+  "activity-home.js.map": "//localhost:8080/ocean/map/1.9429fab821dd850fd33b.js.map",
+  "activity-searct-table.js": "//localhost:8080/ocean/0.94b9385376807debfd15.js",
+  "activity-searct-table.js.map": "//localhost:8080/ocean/map/0.94b9385376807debfd15.js.map",
+  "login.js": "//localhost:8080/ocean/2.b514d3b3dce546fe8826.js",
+  "login.js.map": "//localhost:8080/ocean/map/2.b514d3b3dce546fe8826.js.map",
+  "login.png": "//localhost:8080/ocean/dc647af6851a261f5816f77a6103748b.png",
+  "ocean.css": "//localhost:8080/ocean/css/style.ocean.568ef2081475fcb18ae1.css",
+  "ocean.css.map": "//localhost:8080/ocean/map/css/style.ocean.568ef2081475fcb18ae1.css.map",
+  "ocean.js": "//localhost:8080/ocean/ocean.568ef2081475fcb18ae1.js",
+  "ocean.js.map": "//localhost:8080/ocean/map/ocean.568ef2081475fcb18ae1.js.map"
 }
