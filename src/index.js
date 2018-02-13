@@ -4,7 +4,7 @@ import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { Lazyload } from 'ocean-utils';
 import PermissionGuard from './container/PermissionGuard';
-import Login from 'bundle-loader?lazy&name=loogin!./container/Login';
+import Login from 'bundle-loader?lazy&name=login!./container/Login';
 import Home from 'bundle-loader?lazy&name=activity-home!./container/Home';
 import SearchTable from 'bundle-loader?lazy&name=activity-searct-table!./container/SearchTable';
 import Navbar from 'component/Navbar';

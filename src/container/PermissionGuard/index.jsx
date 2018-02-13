@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { authAction } from '../../redux/auth.redux';
+import { authAction } from '../../redux/auth';
 
 class PermissionGuard extends React.PureComponent {
   static propTypes = {
